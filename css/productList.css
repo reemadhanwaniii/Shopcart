@@ -10,6 +10,7 @@
 
 .product-list-sidebar {
     margin-right: 100px;
+    flex-basis: 25%;
 }
 
 .product-list-sidebar a {
@@ -47,4 +48,40 @@
 
 .price-filter .price-filter-select > div {
     margin-bottom: 0.5rem;
+}
+
+.product-list-box {
+    flex-basis: 75%;
+}
+
+.product-list-box .product-item {
+    width: 30%;
+    margin-right: 2%;
+    margin-bottom: 30px;
+    box-shadow: 0px 1px 5px var(--light-gray);
+    padding: 0.5rem;
+}
+
+.product-list-box .product-item img {
+    max-width: 100%;
+}
+
+.product-list-box .product-item .product-name {
+    font-size: 1.5rem;
+    color: black;
+    padding: 0.75rem 0;
+}
+
+.product-list-box .product-item .product-price {
+    color: var(--jean-blue);
+    padding-bottom: 10px;
+}
+
+.product-list-box .product-item:nth-child(3n) {
+    margin-right: 0;
+}
+
+.product-list-box .product-item:hover {
+    box-shadow: 0px 4px 10px var(--light-gray);
+    transition: box-shadow 0.15s linear 0s;
 }
