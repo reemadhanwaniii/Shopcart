@@ -5,6 +5,11 @@ document.addEventListener('DOMContentLoaded',async () => {
     }
 
 
+    async function fetchCategories() {
+        const response = await axios.get('https://fakestoreapi.com/products/categories');
+        return response.data;
+    }
+
     const downloadedProducts = await fetchProducts();
 
     async function fetchProductsByCategory(category) {
@@ -57,7 +62,23 @@ document.addEventListener('DOMContentLoaded',async () => {
         })
     }
 
+
+    async function populateCategories() {
+        const categories = await fetchCategories();
+        const categoryList = document.getElementById('category-list');
+
+        categories.forEach((category) => {
+            const categoryLink = document.createElement('a');
+            categoryLink.classList.add('d-flex', 'text-decoration-none');
+            categoryLink.textContent = category;
+            categoryLink.href = `productList.html?category=${category}`;
+
+            categoryList.appendChild(categoryLink);
+        })
+    }
+
     populateProducts(false);
+    populateCategories();
 
 
     const filterSearch = document.getElementById('search');
