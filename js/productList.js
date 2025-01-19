@@ -77,9 +77,20 @@ document.addEventListener('DOMContentLoaded',async () => {
         })
     }
 
-    populateProducts(false);
-    populateCategories();
+    async function downloadContentAndPopulate() {
+        Promise.all([populateProducts(false),populateCategories()])
+        .then(()=> {
+            const loaderBackdrop = document.getElementById('loader-backdrop');
+            loaderBackdrop.style.display = 'none';
+        });
+        // await populateProducts(false);
+        // await populateCategories();
+        // const loaderBackdrop = document.getElementById('loader-backdrop');
+        // loaderBackdrop.style.display = 'none';
+    }
 
+    
+    downloadContentAndPopulate();
 
     const filterSearch = document.getElementById('search');
     filterSearch.addEventListener('click', async () => {
