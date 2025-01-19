@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded',() => {
         let totalPrice = 0;
         products.forEach(product => {
             prepareWrapperDivForCartItems(product,productQuantityMapping);
-            totalPrice += product.price;
+            totalPrice += product.price * productQuantityMapping[product.id];
         });
 
         document.getElementById('total-price').textContent = totalPrice;
